@@ -1,0 +1,30 @@
+<form method="post" action="/post/editDetails" enctype="multipart/form-data">
+    <input type="text" name="oldId" value="<%= oldData.id %>" />
+    <table border="1">
+        <tr>
+            <td>Post Title:</td>
+            <td>
+                <input type="text" name="title" value="<%= oldData.title %>" />
+            </td>
+        </tr>
+        <tr>
+            <td>Post Description:</td>
+            <td>
+                <textarea name="description"><%= oldData.description %></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Post Image:</td>
+            <td>
+                <input type="file" name="postImage" />
+                <img src="<%= oldData.postImage %>" height="100" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Edit Data" />
+            </td>
+        </tr>
+    </table>
+</form>

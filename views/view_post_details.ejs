@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/post">Add Data</a>
+        <br />
+
+        <table border="1">
+            <tr>
+                <td>SR NO</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Image</td>
+                <td>Action</td>
+            </tr>
+            <% let i = 1; for(let key of postData){ %>
+            <tr>
+                <td><%= i %></td>
+                <td><%= key.title %></td>
+                <td><%= key.description %></td>
+                <td><img src="<%= key.postImage %>" height="100" /></td>
+                <td>
+                    <a href="deleteData/?id=<%= key.id %>">Delete</a> ||
+                    <a href="updateData/?id=<%= key.id %>">Update</a>
+                </td>
+            </tr>
+            <% i++; } %>
+        </table>
+    </body>
+</html>

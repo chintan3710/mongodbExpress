@@ -1,0 +1,61 @@
+<form method="post" action="/editDetails" enctype="multipart/form-data">
+    <input type="hidden" name="oldId" value="<%= oldData.id %>" />
+    <table border="1">
+        <tr>
+            <td>Enter Name:</td>
+            <td>
+                <input type="text" name="name" value="<%= oldData.name %>" />
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Age:</td>
+            <td><input type="text" name="age" value="<%= oldData.age %>" /></td>
+        </tr>
+        <tr>
+            <td>Select Gender:</td>
+            <td>
+                <input type="radio" name="gender" value="Male" <% if(oldData.gender == 'Male'){ %><%= 'checked' %><% } %>/>Male
+                <input type="radio" name="gender" value="Female" <% if(oldData.gender == 'Female'){ %><%= 'checked' %><% } %>/>Female
+            </td>
+        </tr>
+        <tr>
+            <td>Select Hobby</td>
+            <td>
+                <input type="checkbox" name="hobby" value="Reading" <% if(oldData.hobby.includes('Reading')){ %> <%= 'checked' %> <% } %>/>Reading
+                <input type="checkbox" name="hobby" value="Dancing" <% if(oldData.hobby.includes('Dancing')){ %> <%= 'checked' %> <% } %>/>Dancing
+                <input type="checkbox" name="hobby" value="Playing" <% if(oldData.hobby.includes('Playing')){ %> <%= 'checked' %> <% } %>/>Playing
+            </td>
+        </tr>
+        <% let city = ["Surat", "Rajkot", "Ahemadabad", "Anand", "Gandhinagar"] %>
+        <tr>
+            <td>Select City:</td>
+            <td>
+                <select name="city">
+                    <option value="">--Select City--</option>
+                    <% city.map((v)=>{ %>
+                    <option value="<%= v %>" <% if(v == oldData.city){ %> <%= 'selected' %> <% } %> ><%= v %></option>
+                    <% }) %>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Send Message:</td>
+            <td>
+                <textarea name="msg"><%= oldData.msg %></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Upload Image:</td>
+            <td>
+                <input type="file" name="adminImage" />
+                <img src="<%= oldData.adminImage %>" height="100"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="editDetails" value="Edit Data" />
+            </td>
+        </tr>
+    </table>
+</form>

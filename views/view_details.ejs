@@ -1,0 +1,32 @@
+<a href="/">Add Data</a>
+<br />
+
+<table border="1">
+    <tr>
+        <td>SR NO</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Gender</td>
+        <td>Hobby</td>
+        <td>City</td>
+        <td>Message</td>
+        <td>Image</td>
+        <td>Action</td>
+    </tr>
+    <% let i = 1; for(let key of stData){ %>
+    <tr>
+        <td><%= i %></td>
+        <td><%= key.name %></td>
+        <td><%= key.age %></td>
+        <td><%= key.gender %></td>
+        <td><%= key.hobby %></td>
+        <td><%= key.city %></td>
+        <td><%= key.msg %></td>
+        <td><img src="<%= key.adminImage %>" height="100" /></td>
+        <td>
+            <a href="/deleteData/?id=<%= key.id %>">Delete</a> ||
+            <a href="/updateData/?id=<%= key.id %>">Update</a>
+        </td>
+    </tr>
+    <% i++; } %>
+</table>
